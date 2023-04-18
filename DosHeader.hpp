@@ -5,7 +5,6 @@
 ///
 /// readpe - Read and display information about Portable Executable (PE) and Common Object File Format (COFF) files
 ///
-/// @see     https://linuxcommand.org/lc3_man_pages/wc1.html
 ///
 /// @file    DosHeader.hpp
 /// @author  Kai Matsusaka <kairem@hawaii.edu>
