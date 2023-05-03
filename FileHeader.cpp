@@ -67,13 +67,13 @@ void FileHeader::printFileHeaderInfo() {
     printf( "    %-33s%u\n", str, numberOfSections );
 
     std::strcpy(str, "Date/time stamp:");
-    printf( "    %-33s0x%x\n", str, timeDateStamp );    // @todo print time
+    printf( "    %-33s%u\n", str, timeDateStamp );    // @todo print time
 
     std::strcpy(str, "Symbol Table offset:");
-    printf( "    %-33s0x%x\n", str, pointerToSymbolTable );
+    printf( "    %-33s%u\n", str, pointerToSymbolTable );
 
     std::strcpy(str, "Number of symbols:");
-    printf( "    %-33s0x%x\n", str, numberOfSymbols );
+    printf( "    %-33s%u\n", str, numberOfSymbols );
 
     std::strcpy(str, "Size of optional header:");
     printf( "    %-33s0x%x\n", str, sizeOfOptionalHeader );
