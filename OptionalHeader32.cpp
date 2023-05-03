@@ -14,7 +14,7 @@
 
 OptionalHeader32::OptionalHeader32( uint8_t byteArray[96] ) {
 
-    memcpy( &Magic,                         byteArray,      2 );
+    memcpy( &magic,                         byteArray,      2 );
 
     // @todo test for magic being 32 bit
 
