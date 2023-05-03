@@ -16,6 +16,7 @@
 #include <fstream>
 
 #include "DosHeader.hpp"
+#include "FileHeader.hpp"
 
 using namespace std;
 
@@ -54,13 +55,27 @@ int main( int argc, char* argv[] ) {
 
     }
 
-    uint8_t byteArray[64];
+    uint8_t dosHeaderArray[64];
+    PEFile.read( (char*)dosHeaderArray, 64 );
+    DosHeader testDosHeader = DosHeader( dosHeaderArray );
+    testDosHeader.printDosHeaderInfo();
 
-    PEFile.read( (char*)byteArray, 64 );
+    PEFile.seekg( testDosHeader.getElfanew(), ios::beg );    // Go to the file offset specified at elfanew 
+                                                          // from the beginning of the file
 
-    DosHeader testHeader = DosHeader( byteArray );
+    uint8_t signature[4];
+    PEFile.read( (char*)signature, 4 );
+    if( !( signature[0] == 'P' && signature[1] == 'E' && signature[2] == '\0' && signature[3] == '\0' ) ) {
 
-    testHeader.printDosHeaderInfo();
+        // @todo print error message
+        exit(EXIT_FAILURE);
+
+    }
+
+    uint8_t fileHeaderArray[20];
+    PEFile.read( (char*)fileHeaderArray, 20 );                       
+    FileHeader testFileHeader = FileHeader( fileHeaderArray );
+    testFileHeader.printFileHeaderInfo();
 
     return 0;
 }

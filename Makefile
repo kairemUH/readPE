@@ -23,11 +23,14 @@ debug: clean $(TARGET)
 DosHeader.o: DosHeader.cpp DosHeader.hpp 
 	$(CC) $(CFLAGS) -c DosHeader.cpp
 
+FileHeader.o: FileHeader.cpp FileHeader.hpp 
+	$(CC) $(CFLAGS) -c FileHeader.cpp
+
 main.o: main.cpp
 	$(CC) $(CFLAGS) -c main.cpp
 
-readpe: main.o DosHeader.o
-	$(CC) $(CFLAGS) -o $(TARGET) main.o DosHeader.o
+readpe: main.o DosHeader.o FileHeader.o
+	$(CC) $(CFLAGS) -o $(TARGET) main.o DosHeader.o FileHeader.o
 
 test: readpe
 	./readpe catnap32.exe
