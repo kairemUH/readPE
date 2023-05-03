@@ -43,12 +43,12 @@ private:
 
 ////////////////////  Constructors  ////////////////////
 public:
-    DosHeader( uint8_t dosLine[64] );
+    DosHeader( uint8_t byteArray[64] );
 
 ////////////////////  Getters and Printing  ////////////////////
 public:
     uint16_t getMagic();
     uint32_t getElfanew();
-    void printDosHeaderInfo();
+    void     printDosHeaderInfo();
 
 };
