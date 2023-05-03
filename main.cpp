@@ -17,6 +17,7 @@
 
 #include "DosHeader.hpp"
 #include "FileHeader.hpp"
+#include "OptionalHeader32.hpp"
 
 using namespace std;
 
@@ -76,6 +77,11 @@ int main( int argc, char* argv[] ) {
     PEFile.read( (char*)fileHeaderArray, 20 );                       
     FileHeader testFileHeader = FileHeader( fileHeaderArray );
     testFileHeader.printFileHeaderInfo();
+
+    uint8_t optionalHeaderArray[96];
+    PEFile.read( (char*)optionalHeaderArray, 96 );                       
+    OptionalHeader32 testOptionalHeader = OptionalHeader32( optionalHeaderArray );
+    testOptionalHeader.printOptionalHeaderInfo();
 
     return 0;
 }

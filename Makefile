@@ -26,11 +26,14 @@ DosHeader.o: DosHeader.cpp DosHeader.hpp
 FileHeader.o: FileHeader.cpp FileHeader.hpp 
 	$(CC) $(CFLAGS) -c FileHeader.cpp
 
+OptionalHeader.o: OptionalHeader.cpp OptionalHeader.hpp 
+	$(CC) $(CFLAGS) -c OptionalHeader.cpp
+
 main.o: main.cpp
 	$(CC) $(CFLAGS) -c main.cpp
 
-readpe: main.o DosHeader.o FileHeader.o
-	$(CC) $(CFLAGS) -o $(TARGET) main.o DosHeader.o FileHeader.o
+readpe: main.o DosHeader.o FileHeader.o OptionalHeader.o
+	$(CC) $(CFLAGS) -o $(TARGET) main.o DosHeader.o FileHeader.o OptionalHeader.o
 
 test: readpe
 	./readpe catnap32.exe
