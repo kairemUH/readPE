@@ -14,7 +14,7 @@ TARGET = readpe
 
 all: $(TARGET)
 
-CC     = gcc
+CC     = g++
 CFLAGS = -Wall -Wextra $(DEBUG_FLAGS)
 
 debug: DEBUG_FLAGS = -g -DDEBUG
@@ -30,7 +30,7 @@ readpe: main.o DosHeader.o
 	$(CC) $(CFLAGS) -o $(TARGET) main.o DosHeader.o
 
 test: readpe
-	./readpe
+	./readpe catnap32.exe
 
 clean:
 	rm -f $(TARGET) *.o
