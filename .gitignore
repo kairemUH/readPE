@@ -29,3 +29,6 @@ core
 *.out
 *.app
 readpe
+
+# Ignore VS Code files
+settings.json
