@@ -14,6 +14,7 @@
 
 #include <iostream>
 #include <cstdio>
+#include <cstring>
 
 class FileHeader {
 
