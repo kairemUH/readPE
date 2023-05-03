@@ -18,7 +18,7 @@ DosHeader::DosHeader( uint8_t dosLine[64] ) {
     // Store each value into its respective section.
     memcpy(&e_magic,    dosLine,     2);
 
-    if( e_magic != 0x4D5A ) {
+    if( e_magic != 0x5A4D ) {
         //@todo print error
     }
 
@@ -53,7 +53,39 @@ uint32_t DosHeader::getElfanew() {
 }
 
 void DosHeader::printDosHeaderInfo() {
-
-    
+    std::string str;
+    printf( "DOS Header\n" );
+    str = "Magic number:";
+    printf( "    %-33s%x (%.2s)\n", str, e_magic, (char*)&e_magic );
+    str = "Bytes in last page:";
+    printf( "    %-33s%u \n", str, e_cblp );
+    str = "Pages in file:";
+    printf( "    %-33s%u \n", str, e_cp );
+    str = "Relocations:";
+    printf( "    %-33s%u \n", str, e_crlc );
+    str = "Size of header in paragraphs:";
+    printf( "    %-33s%u \n", str, e_cparhdr );
+    str = "Minimum extra paragraphs:";
+    printf( "    %-33s%u \n", str, e_minalloc );
+    str = "Maximum extra paragraphs:";
+    printf( "    %-33s%u \n", str, e_maxalloc );
+    str = "Initial (relative) SS value:";
+    printf( "    %-33s%u \n", str, e_ss );
+    str = "Initial SP value:";
+    printf( "    %-33s%x \n", str, e_sp );
+    str = "Initial IP value:";
+    printf( "    %-33s%u \n", str, e_ip );
+    str = "Initial (relative) CS value:";
+    printf( "    %-33s%u \n", str, e_cs );
+    str = "Address of relocation table:";
+    printf( "    %-33s%x \n", str, e_lfarlc );
+    str = "Overlay number:";
+    printf( "    %-33s%u \n", str, e_ovno );
+    str = "OEM identifier:";
+    printf( "    %-33s%u \n", str, e_oemid );
+    str = "OEM information:";
+    printf( "    %-33s%u \n", str, e_oeminfo );
+    str = "PE header offset:";
+    printf( "    %-33s%x \n", str, e_lfanew );
 
 }

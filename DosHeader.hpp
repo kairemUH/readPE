@@ -14,6 +14,8 @@
 
 #include <iostream>
 #include <cassert>
+#include <cstdio>
+#include <cstring>
 
 class DosHeader {
 
