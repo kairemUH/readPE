@@ -48,7 +48,7 @@ int main( int argc, char* argv[] ) {
 
     if( !PEFile ) {
 
-        cout << "Error: could not open file [maps]." << endl;
+        cout << "Error: could not open file [" << argv[1] << "]." << endl;
 
         exit(EXIT_FAILURE);
 
