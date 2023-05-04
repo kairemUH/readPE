@@ -24,12 +24,13 @@ using namespace std;
 int main( int argc, char* argv[] ) {
 
     // @todo send all errors to stderr
+    //       and redo error checking to be more professional
 
     //////////  Error checking  //////////
 
     if( argc < 2 ) {
 
-        printf( "Error: No file specified.\n" );
+        cout << "Error: No file specified." << endl;
 
         exit(EXIT_FAILURE);
 
@@ -37,7 +38,7 @@ int main( int argc, char* argv[] ) {
 
     if( argc > 2 ) {
 
-        printf("Error: Too many arguments.\n");
+        cout << "Error: Too many arguments." << endl;
 
         exit(EXIT_FAILURE);
 
