@@ -89,9 +89,9 @@ int main( int argc, char* argv[] ) {
 
     for( int i = 0; i < testFileHeader.getNumberOfSections(); i++ ) {
 
-        uint8_t sectionHeaderArray[33];
+        uint8_t sectionHeaderArray[40];
 
-        PEFile.read( (char*)sectionHeaderArray, 33 );
+        PEFile.read( (char*)sectionHeaderArray, 40 );
 
         SectionHeader testSectionHeader = SectionHeader( sectionHeaderArray );
 
