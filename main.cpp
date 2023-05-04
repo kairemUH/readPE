@@ -10,14 +10,13 @@
 /// @author  Kai Matsusaka <kairem@hawaii.edu>
 ///////////////////////////////////////////////////////////////////////////////
 
-#pragma once
-
 #include <iostream>
 #include <fstream>
 
 #include "DosHeader.hpp"
 #include "FileHeader.hpp"
 #include "OptionalHeader32.hpp"
+#include "SectionHeader.hpp"
 
 using namespace std;
 
@@ -84,5 +83,22 @@ int main( int argc, char* argv[] ) {
     OptionalHeader32 testOptionalHeader = OptionalHeader32( optionalHeaderArray );
     testOptionalHeader.printOptionalHeaderInfo();
 
+    cout << "Sections" << endl;
+
+    PEFile.seekg( testDosHeader.getElfanew() + 24 + testFileHeader.getSizeOfOptionalHeader(), ios::beg );
+
+    for( int i = 0; i < testFileHeader.getNumberOfSections(); i++ ) {
+
+        uint8_t sectionHeaderArray[33];
+
+        PEFile.read( (char*)sectionHeaderArray, 33 );
+
+        SectionHeader testSectionHeader = SectionHeader( sectionHeaderArray );
+
+        testSectionHeader.printSectionHeaderInfo();
+
+    }
+
     return 0;
+
 }
