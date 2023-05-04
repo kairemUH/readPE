@@ -123,7 +123,7 @@ void OptionalHeader32::printOptionalHeaderInfo() {
     printf( "    %-33s%u\n", str, checkSum );
 
     std::strcpy(str, "Subsystem required:");
-    printf( "    %-33s0x%x\n", str, subsystem );
+    printf( "    %-33s0x%x\n", str, subsystem );        // @todo print out subsystem
 
     std::strcpy(str, "DLL characteristics:");
     printf( "    %-33s0x%x\n", str, dllCharacteristics );
